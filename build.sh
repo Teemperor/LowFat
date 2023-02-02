@@ -64,7 +64,7 @@ build_llvm()
     if [ $CONFIGURE = true ]
     then
         CC=$CLANG CXX=$CLANGXX cmake ../llvm-4.0.0.src/ \
-            -DCMAKE_BUILD_TYPE=Release
+            -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-w"
     fi
     PARALLEL=`grep -c ^processor /proc/cpuinfo`
     make -j $PARALLEL
